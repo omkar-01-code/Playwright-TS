@@ -9,7 +9,7 @@ export const test = base.extend<MyFixtures>({
     {
 
         //Launch browser
-        const browser: Browser = await chromium.launch({headless: false});
+        const browser: Browser = await chromium.launch({headless: true});
 
         //Create fresh browser session
         const context = await browser.newContext();
