@@ -17,7 +17,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   use: {
-    headless: false,
+    headless: true,
     viewport: { width: 1280, height: 720 },
     actionTimeout: 15000,
     baseURL: process.env.BASE_URL,
