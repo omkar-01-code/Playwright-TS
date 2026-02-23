@@ -9,7 +9,7 @@ export class HomePage {
     async navigate() {
         await this.page.goto('/');
     }
-
+    
     async searchIPhone() {
         const searchBox = this.page.getByRole('searchbox', { name: AmazonLocators.home.searchBox });
         await searchBox.click();
