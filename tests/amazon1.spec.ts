@@ -9,7 +9,7 @@ test('test',async ({page}) => {
   await page.getByRole('searchbox',{name: 'Search Amazon.in'}).fill('iphone');
 
   //click on suggestion
-  await page.getByRole('button',{name: 'iphone 17 pro'}).click();
+  await page.getByRole('button',{name: 'iphone 17 pro max'}).click();
 
   //click on add to cart
   await page.locator('#a-autoid-3-announce').click();
