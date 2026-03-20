@@ -1,8 +1,8 @@
 import { test, expect } from '../Base/amazon_1-test-base';
 
-test.describe('Amazon India Checkout Flow', () => {
+test.describe('Checkout Flow', () => {
 
-    test('Complete iPhone Purchase Flow', async ({ homePage, productPage }) => {
+    test('Purchase Flow', async ({ homePage, productPage }) => {
         //navigate and search
         await homePage.navigate();
         await homePage.searchIPhone();

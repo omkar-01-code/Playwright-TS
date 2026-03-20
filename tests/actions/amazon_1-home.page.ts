@@ -13,7 +13,7 @@ export class HomePage {
     async searchIPhone() {
         const searchBox = this.page.getByRole('searchbox', { name: AmazonLocators.home.searchBox });
         await searchBox.click();
-        await searchBox.fill('iphone 17');
+        await searchBox.fill('iphone 17 pro max');
         
         //wait for specific suggestion button to appear
         const suggestion = this.page.getByRole('button', { name: AmazonLocators.home.iphoneSuggestion });
