@@ -1,6 +1,6 @@
 export const AmazonLocators = {
     home: {
-        searchBox: 'Search Amazon.in',
+        searchBox: 'search amazon.in',
         iphoneSuggestion: 'iphone 17 pro max 256gb',
     },
     product: {
