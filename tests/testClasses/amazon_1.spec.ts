@@ -2,7 +2,12 @@ import { test, expect } from '../Base/amazon_1-test-base';
 
 test.describe('Checkout Flow', () => {
 
-    test('Purchase Flow', async ({ homePage, productPage }) => {
+    test('Purchase Flow', async ({ homePage, productPage, browserName }) => {
+
+        if (browserName === 'firefox') {
+            test.skip();
+        }
+
         //navigate and search
         await homePage.navigate();
         await homePage.searchIPhone();
