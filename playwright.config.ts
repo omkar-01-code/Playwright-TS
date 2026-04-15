@@ -1,7 +1,11 @@
 import { defineConfig, devices } from '@playwright/test';
 import * as dotenv from 'dotenv';
 
-dotenv.config();
+try {
+  dotenv.config({ debug: false, path: '.env', override: false });
+} catch (error) {
+  console.warn('Warning: dotenv.config() failed:', error instanceof Error ? error.message : String(error));
+}
 
 export default defineConfig({
   testDir: './tests',
@@ -13,7 +17,7 @@ export default defineConfig({
 
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: 0,
+  retries: 1,
   workers: process.env.CI ? 1 : undefined,
 
   use: {
@@ -25,12 +29,12 @@ export default defineConfig({
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
 
-    /* --- ADDED WORKAROUNDS FOR AMAZON BOT DETECTION --- */
+    /* --- AMAZON BOT DETECTION WORKAROUNDS --- */
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
     extraHTTPHeaders: {
       'Accept-Language': 'en-US,en;q=0.9',
     },
-    /* -------------------------------------------------- */
+    /* ---------------------------------------- */
   },
 
   projects: [
@@ -43,11 +47,17 @@ export default defineConfig({
     },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        ...devices['Desktop Firefox'],
+        userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0',
+      },
     },
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: {
+        ...devices['Desktop Safari'],
+        userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15',
+      },
     },
   ],
 });
