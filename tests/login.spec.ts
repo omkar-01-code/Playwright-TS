@@ -12,6 +12,6 @@ test('Login test using POM with Base Class', async ({page}) =>
     await loginAction.login('student','Password123');
     
     //Assert login was successful
-    await page.getByRole('heading',{name: 'Logged In Successfully'});
+    await expect(page.getByRole('heading', { name: 'Logged In Successfully' })).toBeVisible();
 
 });

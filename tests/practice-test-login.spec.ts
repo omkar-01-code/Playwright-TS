@@ -18,5 +18,5 @@ test ('test',async({page}) =>
     
     //await expect(page).toHaveTitle('Logged In Successfully | Practice Test Automation');
 
-    await page.getByRole('heading',{name: 'Logged In Successfully'});
+    await expect(page.getByRole('heading', { name: 'Logged In Successfully' })).toBeVisible();
 });

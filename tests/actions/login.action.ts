@@ -19,8 +19,8 @@ export class LoginAction {
         async login(username: string, password: string) {
 
         //Use variables passed into the function
-        await this.locator.usernameInput.fill('username');
-        await this.locator.passwordInput.fill('passwords');
+        await this.locator.usernameInput.fill(username);
+        await this.locator.passwordInput.fill(password);
         await this.locator.loginButton.click();
     }
 }
